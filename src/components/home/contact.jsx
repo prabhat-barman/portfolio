@@ -47,7 +47,7 @@ function Contact() {
           </div>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="Sheet self-stretch h-[458px] flex-col justify-start items-center gap-16 flex">
+          <div className="Sheet h-[458px] w-full flex-col justify-start items-center gap-16 flex">
             <div className="Content self-stretch h-[338px] flex-col justify-start items-center gap-16 flex">
               <div className="Title px-10 py-4 rounded-tl-[32px] rounded-br-[32px] border-2 border-[#12f7d6] flex-col justify-start items-center flex">
                 <div className="SendMeAMessage text-center text-[#12f7d6] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
