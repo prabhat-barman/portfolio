@@ -12,7 +12,7 @@ function Contact() {
     emailjs
       .send(
         "service_lwjblw4", // Replace with your EmailJS service ID
-        "template_l3y1e4p", // Replace with your EmailJS template ID
+        "template_qsnljdo", // Replace with your EmailJS template ID
         { from_name: name, to_name: "Prabhat", message, email },
         "7i7pFJeEBZlDTEmVv" // Replace with your EmailJS user ID
       )
