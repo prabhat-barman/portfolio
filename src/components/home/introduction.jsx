@@ -54,7 +54,7 @@ function Introduction() {
                       <div className="IconMapPin w-3.5 h-3.5 px-[1.17px] justify-center items-center inline-flex" />
                     </div>
                     <div className="Bhopal text-white text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                      Bhopal
+                      Bhopal M.P
                     </div>
                   </div>
                   <div className="Freelancer justify-center items-center gap-4 inline-flex">
