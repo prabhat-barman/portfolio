@@ -1,18 +1,18 @@
 import React from "react";
 import mouse from "../../assets/mouse.svg";
 import desktop from "../../assets/desktop.svg";
-function Skill() {
+function Skill({id}) {
   return (
-    <div>
-      <div className="tp w-full flex items-center justify-around">
+    <div id={id}>
+      <div className="tp hidden  lg:flex md:flex items-center justify-around">
         <img src={mouse} alt="mouse" />
       </div>
-      <div className="Skills  flex items-center justify-around h-[1080px] p-32 flex-col ">
+      <div className="Skills  flex items-center justify-around lg:p-10 md:p-10 flex-col ">
         <div className="Icon self-stretch pl-[720px] justify-center items-start inline-flex">
           <div className=" text-[#12f7d6] text-[168px] font-normal font-['Ubuntu'] capitalize"></div>
         </div>
-        <div className="Container self-stretch h-[824px] flex-col justify-start items-center gap-16 flex">
-          <div className="ModuleTitle self-stretch h-[328px] flex-col justify-start items-center gap-16 flex">
+        <div className="Container self-stretch flex-col justify-start items-center gap-16 flex">
+          <div className="ModuleTitle self-stretch flex-col justify-start items-center gap-16 flex">
             <div className="Scroll flex-col justify-center items-center gap-4 flex">
               <div className="Mouse justify-center items-center inline-flex" />
               <div className="Line justify-center items-center inline-flex" />
@@ -69,12 +69,12 @@ function Skill() {
                 </div>
               </div> */}
             </div>
-            <div className="Skills justify-start items-start gap-32 inline-flex">
+            <div className="Skills justify-center items-center lg:gap-32 md:gap-24 gap-10 inline-flex lg:flex-none md:flex-nowrap flex-wrap w-full">
               <div className="Html flex-col justify-center items-center gap-6 inline-flex">
                 <div className="Icon p-10 bg-[#e54f26] rounded-[80px] justify-center items-center inline-flex">
                   <svg
-                    width="64"
-                    height="64"
+                    width="34"
+                    height="34"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,17 +85,17 @@ function Skill() {
                     />
                   </svg>
                 </div>
-                <div className="Text justify-start items-start gap-2.5 inline-flex">
-                  <div className="Html text-[#e54f26] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                <div className="Text justify-start items-start inline-flex">
+                  <div className="Html text-[#e54f26] text-[26px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                     HTML
                   </div>
                 </div>
               </div>
-              <div className="Css flex-col justify-center items-center gap-6 inline-flex">
+              <div className="Css flex-col justify-center items-center inline-flex gap-6">
                 <div className="Icon p-10 bg-[#0c73b8] rounded-[80px] justify-center items-center inline-flex">
                   <svg
-                    width="64"
-                    height="64"
+                    width="34"
+                    height="34"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +106,8 @@ function Skill() {
                     />
                   </svg>
                 </div>
-                <div className="Text justify-start items-start gap-2.5 inline-flex">
-                  <div className="Css text-[#0c73b8] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                <div className="Text justify-start items-start inline-flex">
+                  <div className="Css text-[#0c73b8] text-[26px]  font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                     CSS
                   </div>
                 </div>
@@ -115,8 +115,8 @@ function Skill() {
               <div className="Js flex-col justify-center items-center gap-6 inline-flex">
                 <div className="Icon p-10 bg-[#e7a020] rounded-[80px] justify-center items-center inline-flex">
                   <svg
-                    width="64"
-                    height="64"
+                    width="34"
+                    height="34"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ function Skill() {
                   </svg>
                 </div>
                 <div className="Text justify-start items-start gap-2.5 inline-flex">
-                  <div className="Js text-[#e7a020] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                  <div className="Js text-[#e7a020] text-[26px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                     JS
                   </div>
                 </div>
@@ -136,8 +136,8 @@ function Skill() {
               <div className="React flex-col justify-center items-center gap-6 inline-flex">
                 <div className="Icon p-10 bg-[#28a9e0] rounded-[80px] justify-center items-center inline-flex">
                   <svg
-                    width="64"
-                    height="64"
+                    width="34"
+                    height="34"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ function Skill() {
                   </svg>
                 </div>
                 <div className="Text justify-start items-start gap-2.5 inline-flex">
-                  <div className="React text-[#28a9e0] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                  <div className="React text-[#28a9e0] text-[26px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                     REACT
                   </div>
                 </div>

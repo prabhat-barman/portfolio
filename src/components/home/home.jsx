@@ -8,10 +8,10 @@ import Contact from "./contact";
 function Home() {
   return (
     <div className="h-full">
-      <Introduction />
-      <AboutMe />
-      <Skill />
-      <Contact />
+      <Introduction id="Home"/>
+      <AboutMe id="About" />
+      <Skill id="Projects"/>
+      <Contact id="Contact"/>
       {/* <EmailForm /> */}
     </div>
   );

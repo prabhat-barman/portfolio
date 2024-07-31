@@ -2,7 +2,7 @@ import React from "react";
 import dp from "../../assets/76841998.png";
 import download from "../../assets/download.svg";
 import mail from "../../assets/mail.svg";
-function Introduction() {
+function Introduction({id}) {
   function downloadFile() {
     const link = document.createElement("a");
     link.href =
@@ -14,14 +14,14 @@ function Introduction() {
   }
 
   return (
-    <div className="flex flex-col  justify-around m-5 p-5">
+    <div id={id} className="flex flex-col  justify-around m-5 p-5">
       <div className="tp flex flex-col items-center">
-        <div className="Developer text-[#97f9eb] text-[117px] font-normal font-['Ubuntu'] capitalize leading-[134px]">
+        <div className="Developer text-[#97f9eb] lg:text-[117px] md:text-[117px] sm:text-[80px] text-[60px] font-normal font-['Ubuntu'] capitalize leading-[134px]">
           Developer
         </div>
       </div>
-      <div className="btm flex items-center  w-full">
-        <div className="small-div  w-2/6 h-3/5 flex justify-center">
+      <div className="btm flex items-center lg:flex-row flex-col justify-between w-full">
+        <div className="small-div  w-[40%] h-3/5 flex justify-center">
           <div className="Left flex items-center w-80 h-[520px] p-6 bg-[#292f36] rounded-xl shadow border-4 border-white flex-col justify-center  gap-8">
             <div className="Content flex-col justify-start items-center gap-8 flex">
               <div className="PhotoName flex-col justify-start items-center gap-4 flex">
@@ -112,101 +112,101 @@ function Introduction() {
             </div>
           </div>
         </div>
-        <div className="large-div  w-2/6  h-3/5">
-          <div className="Info h-[432px] flex-col justify-start items-start gap-8 inline-flex">
-            <div className="Title self-stretch h-[234px] flex-col justify-start items-start flex">
-              <div className="H1 text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                <h1></h1>
-              </div>
-              <div className="Text self-stretch h-[216px] px-4 flex-col justify-start items-start flex">
-                <div className="Hey text-white text-[64px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
-                  Hey
-                </div>
-                <div className="IMPrabhat">
-                  <span className="text-white text-[64px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
-                    I’m
-                  </span>
-                  <span className=" ml-2 text-[#12f7d6] text-[64px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
-                    Prabhat
-                  </span>
-                  <span className="text-white text-[64px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
-                    ,
-                  </span>
-                </div>
-                <div className="Identity justify-start items-baseline gap-4 inline-flex">
-                  <div className="FullStackDeveloper text-white text-[64px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
-                    Full-stack developer
+        <div className="flex items-center justify-between lg:flex-row md:flex-row sm:flex-row flex-col">
+        <div className="large-div  lg:w-[75%]  md:w-[75%] w-full h-3/5">
+            <div className="Info h-[432px] flex-col justify-start items-start gap-8 inline-flex">
+              <div className="Title self-stretch h-[234px] flex-col justify-start items-start flex">
+                <div className="Text self-stretch h-[216px] px-4 flex-col justify-start items-start flex">
+                  <div className="Hey text-white lg:text-[64px] md:text-[64px] sm:text-[64px] text-[50px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
+                    Hey
                   </div>
-                  <div className="H1 text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                    <h1></h1>
+                  <div className="IMPrabhat">
+                    <span className="text-white lg:text-[64px] md:text-[64px] sm:text-[64px] text-[50px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
+                      I’m
+                    </span>
+                    <span className=" ml-2 text-[#12f7d6] lg:text-[64px] md:text-[64px] sm:text-[64px] text-[50px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
+                      Prabhat
+                    </span>
+                    <span className="text-white lg:text-[64px] md:text-[64px] sm:text-[64px] text-[50px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
+                      ,
+                    </span>
+                  </div>
+                  <div className="Identity justify-start items-baseline gap-4 inline-flex">
+                    <div className="FullStackDeveloper text-white lg:text-[64px] md:text-[64px] sm:text-[64px] text-[50px] font-normal font-['Ubuntu'] capitalize leading-[72px]">
+                      Full-stack developer
+                    </div>
+                    <div className="H1 text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
+                      <h1></h1>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="Para self-stretch h-[166px] flex-col justify-start items-start gap-4 flex">
-              <div className="P text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                <p></p>
-              </div>
-              <div className="Text px-6 justify-start items-start inline-flex">
-                <div className="IHelpBusinessGrowByCraftingAmazingWebExperiencesIfYouReLookingForADeveloperThatLikesToGetStuffDone w-[697px] text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  I help businesses grow by crafting amazing web experiences. If
-                  you’re looking for a developer that likes to get stuff done,
+              <div className="Para self-stretch h-[166px] flex-col justify-start items-start gap-4 flex">
+                <div className="P text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
+                  <p></p>
                 </div>
-              </div>
-              <div className="P text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                <p></p>
-              </div>
-              <div className="Cta pl-6 justify-start items-center gap-4 inline-flex">
-                <div className="LetSTalk text-[#12f7d6] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
-                  let’s talk
+                <div className="Text px-6 justify-start items-start inline-flex">
+                  <div className="IHelpBusinessGrowByCraftingAmazingWebExperiencesIfYouReLookingForADeveloperThatLikesToGetStuffDone w-full text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    I help businesses grow by crafting amazing web experiences.
+                    If you’re looking for a developer that likes to get stuff
+                    done,
+                  </div>
                 </div>
-                <div className="Button p-2 bg-[#43454d] rounded-[40px] justify-start items-start flex">
-                  <div className="IconMail w-6 h-6 justify-center items-center flex">
-                    <img src={mail} alt="mail" srcset="" />
+                <div className="P text-[#97f9eb] text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
+                  <p></p>
+                </div>
+                <div className="Cta pl-6 justify-start items-center gap-4 inline-flex">
+                  <div className="LetSTalk text-[#12f7d6] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                    let’s talk
+                  </div>
+                  <div className="Button p-2 bg-[#43454d] rounded-[40px] justify-start items-start flex">
+                    <div className="IconMail w-6 h-6 justify-center items-center flex">
+                      <img src={mail} alt="mail" srcset="" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="small-div w-2/6 h-3/5 flex justify-center">
-          <div className="Highlights h-[378px] px-8 py-12 bg-[#1a1e23] rounded-[80px] shadow  flex-col justify-center items-center gap-3 inline-flex">
-            <div className="Language justify-start items-center gap-4 inline-flex">
-              <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
-                4
-              </div>
-              <div className="Text flex-col justify-center items-start inline-flex">
-                <div className="Programming text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Programming
+          <div className="small-div w-2/6 h-3/5 flex justify-center lg:mt-0 md:mt-0 sm:mt-0 xsm:mt-0 mt-10">
+            <div className="Highlights h-[378px] px-8 py-12 bg-[#1a1e23] rounded-[80px] shadow  flex-col justify-center items-center gap-3 inline-flex">
+              <div className="Language justify-start items-center gap-4 inline-flex">
+                <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
+                  4
                 </div>
-                <div className="Language text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Language
-                </div>
-              </div>
-            </div>
-            <div className="Tools justify-start items-center gap-4 inline-flex">
-              <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
-                6
-              </div>
-              <div className="Text flex-col justify-center items-start inline-flex">
-                <div className="Development text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Development
-                </div>
-                <div className="Tools text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Tools
+                <div className="Text flex-col justify-center items-start inline-flex">
+                  <div className="Programming text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Programming
+                  </div>
+                  <div className="Language text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Language
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="Experience justify-start items-center gap-4 inline-flex">
-              <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
-                3
-              </div>
-              <div className="Text flex-col justify-center items-start inline-flex">
-                <div className="YearsOf text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Years of
+              <div className="Tools justify-start items-center gap-4 inline-flex">
+                <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
+                  6
                 </div>
-                <div className="Experience text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
-                  Experience
+                <div className="Text flex-col justify-center items-start inline-flex">
+                  <div className="Development text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Development
+                  </div>
+                  <div className="Tools text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Tools
+                  </div>
+                </div>
+              </div>
+              <div className="Experience justify-start items-center gap-4 inline-flex">
+                <div className=" text-[#12f7d6] text-5xl font-medium font-['IBM Plex Mono'] capitalize leading-[62px]">
+                  3
+                </div>
+                <div className="Text flex-col justify-center items-start inline-flex">
+                  <div className="YearsOf text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Years of
+                  </div>
+                  <div className="Experience text-white text-base font-normal font-['IBM Plex Mono'] leading-tight">
+                    Experience
+                  </div>
                 </div>
               </div>
             </div>
