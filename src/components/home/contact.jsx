@@ -1,14 +1,64 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-function Contact() {
+import { IoIosCloseCircleOutline } from "react-icons/io";
+
+function Contact({id}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handleMessageChange = (e) => setMessage(e.target.value);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
+  const [addInputField,setaddInputField]=useState(false);
+
+  const handleaddInputField=()=>{
+    setaddInputField(!addInputField);
+  }
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    if (e.target.value) setNameError("");
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (e.target.value) setEmailError("");
+  };
+
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+    if (e.target.value) setMessageError("");
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    let isValid = true;
+    if (!name) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!email) {
+      setEmailError("Email is required");
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email");
+      isValid = false;
+    }
+    if (!message) {
+      setMessageError("Message is required");
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    setLoading(true);
     emailjs
       .send(
         "service_lwjblw4", // Replace with your EmailJS service ID
@@ -18,17 +68,23 @@ function Contact() {
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert("Email sent successfully!");
+        setSuccess("Email sent successfully!");
+        setLoading(false);
+        setName("");
+        setEmail("");
+        setMessage("");
       })
       .catch((err) => {
         console.error("FAILED...", err);
-        alert("Failed to send email. Please try again later.");
+        setError("Failed to send email. Please try again later.");
+        setLoading(false);
       });
   };
+
   return (
-    <div className="Contact h-[1080px] pt-16 pb-4  flex-col justify-start items-center gap-16 flex">
-      <div className="Container self-stretch h-[888px] flex-col justify-start items-center gap-[102px] flex">
-        <div className="ModuleTitle self-stretch h-[328px] flex-col justify-start items-center gap-16 flex">
+    <div id={id} className="Contact  flex-col justify-start items-center gap-16 flex">
+      <div className="Container self-stretch h-[888px] flex-col justify-start items-center gap-[30px] flex">
+        <div className="ModuleTitle self-stretch flex-col justify-start items-center gap-16 flex">
           <div className="Scroll flex-col justify-center items-center gap-4 flex">
             <div className="Mouse justify-center items-center inline-flex" />
             <div className="Line justify-center items-center inline-flex" />
@@ -47,46 +103,54 @@ function Contact() {
           </div>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="Sheet h-[458px] w-full flex-col justify-start items-center gap-16 flex">
-            <div className="Content self-stretch h-[338px] flex-col justify-start items-center gap-16 flex">
+          <div className="Sheet w-full flex-col justify-start items-center gap-16 flex lg:px-0 md:px-0 sm:px-0 px-5">
+            <div className="Content self-stretch flex-col justify-start items-center gap-16 flex">
               <div className="Title px-10 py-4 rounded-tl-[32px] rounded-br-[32px] border-2 border-[#12f7d6] flex-col justify-start items-center flex">
-                <div className="SendMeAMessage text-center text-[#12f7d6] text-[32px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
+                <div className="SendMeAMessage text-center text-[#12f7d6] lg:text-[32px] md:text-[32px] sm:text-[32px] text-[24px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                   Send me a message
                 </div>
               </div>
-              <div className="Info self-stretch h-[200px] px-[400px] flex-col justify-start items-center gap-16 flex">
-                <div className="Colunmn self-stretch justify-center items-start gap-32 inline-flex">
+              <div className="Info self-stretch h-[200px] flex-col justify-start items-center gap-16 flex">
+                <div className="Colunmn self-stretch justify-center lg:items-start md:items-start lg:gap-32 md:gap-32 sm:gap-24 gap-14 flex lg:flex-row md:flex-row sm:flex-row flex-col">
                   <div className="Name grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
                     <div className="Title self-stretch justify-start items-start gap-2.5 inline-flex">
                       <label className="YourName grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
-                        Your name *
+                        Your name <span className="text-white">*</span>
                       </label>
                     </div>
                     <div className="Input self-stretch h-[26px] flex-col justify-start items-start gap-2 flex">
                       <input
                         name="from_name"
                         onChange={handleNameChange}
+                        value={name}
                         className="EnterYourName bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
                         type="text"
                         placeholder="Enter your name"
                       />
                       <div className="Line26 self-stretch h-[0px] border border-[#97f9eb]"></div>
+                      {nameError && (
+                        <div className="text-red-500 text-xs">{nameError}</div>
+                      )}
                     </div>
                   </div>
                   <div className="Email grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
                     <div className="Title self-stretch justify-start items-start gap-2.5 inline-flex">
                       <label className="YourEmail grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
-                        Your email *
+                        Your email <span className="text-white">*</span>
                       </label>
                     </div>
                     <div className="Input self-stretch h-[26px] flex-col justify-start items-start gap-2 flex">
                       <input
                         onChange={handleEmailChange}
+                        value={email}
                         className="EnterYourName bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
                         type="text"
                         placeholder="Enter your email"
                       />
                       <div className="Line26 self-stretch h-[0px] border border-[#97f9eb]"></div>
+                      {emailError && (
+                        <div className="text-red-500 text-xs">{emailError}</div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -94,24 +158,58 @@ function Contact() {
                   <div className="Message grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
                     <div className="Title self-stretch justify-start items-start inline-flex">
                       <label className="YourMessage grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
-                        Your message *
+                        Your message <span className="text-white">*</span>
                       </label>
                     </div>
                     <div className="Input self-stretch h-[26px] flex-col justify-start items-start gap-2 flex">
                       <input
                         name="message"
                         onChange={handleMessageChange}
+                        value={message}
                         className="EnterYourName bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
                         type="text"
                         placeholder="Enter your message"
                       />
                       <div className="Line26 self-stretch h-[0px] border border-[#97f9eb]"></div>
+                      {messageError && (
+                        <div className="text-red-500 text-xs">{messageError}</div>
+                      )}
                     </div>
+                    {addInputField?
+                    <div className="Colunmn self-stretch justify-start items-start gap-16 inline-flex mt-8">
+                    <div className="Message grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
+                      <div className="Title self-stretch justify-start items-start inline-flex">
+                        <label className="YourMessage grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
+                          Your Number <span className="text-white">*</span>
+                        </label>
+                        <IoIosCloseCircleOutline onClick={handleaddInputField} className="text-white text-base" />
+                      </div>
+                      <div className="Input self-stretch h-[26px] flex-col justify-start items-start gap-2 flex">
+                        <input
+                          name="message"
+                          onChange={handleMessageChange}
+                          value={message}
+                          className="EnterYourName bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
+                          type="text"
+                          placeholder="Enter your number"
+                        />
+                        <div className="Line26 self-stretch h-[0px] border border-[#97f9eb]"></div>
+                        {messageError && (
+                          <div className="text-red-500 text-xs">{messageError}</div>
+                        )}
+                      </div>
+  
+                    </div>
+                  </div>
+                    :<button onClick={handleaddInputField} className="text-white px-3 py-1 bg-[#12F7D6] rounded-md">Add Number</button>}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="Button flex-col justify-start items-start flex">
+            {loading ? (
+              <div className="text-white">Loading...</div>
+            ) : (
+              <div className="Button flex-col justify-start items-start flex lg:mt-0 md:mt-0 sm:mt-0 mt-40">
               <div className="Button px-8 py-4 bg-[#12f7d6] rounded-[32px] justify-center items-center gap-4 inline-flex">
                 <div className="ButtonText text-[#292f36] text-xl font-normal font-['Ubuntu'] capitalize leading-normal">
                   Send Message
@@ -137,13 +235,16 @@ function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
+            )}
+            {error && <div className="error text-white">{error}</div>}
+            {success && <div className="success text-white">{success}</div>}
           </div>
         </form>
       </div>
-      <div className="Footer self-stretch h-12 flex-col justify-start items-start gap-4 flex">
+      <div className="Footer self-stretch h-auto flex-col justify-start items-start gap-4 flex">
         <div className="Line1 self-stretch h-[0px] border border-[#43454d]"></div>
-        <div className="Container self-stretch px-32 justify-between items-center inline-flex">
+        <div className="Container self-stretch lg:px-32 md:px-24 sm:px-16 px-2 gap-y-2 justify-around items-center inline-flex flex-wrap">
           <div className="Copyright justify-start items-center flex">
             <div className=" text-white text-base font-light font-['Ubuntu'] leading-[18px]">
               © 2023 Prabhat. All rights reserved.
@@ -237,3 +338,4 @@ function Contact() {
 }
 
 export default Contact;
+
