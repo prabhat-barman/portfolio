@@ -2,7 +2,7 @@ import React from "react";
 import dp from "../../assets/76841998.png";
 import download from "../../assets/download.svg";
 import mail from "../../assets/mail.svg";
-function Introduction({id}) {
+function Introduction({ id }) {
   function downloadFile() {
     const link = document.createElement("a");
     link.href =
@@ -69,8 +69,10 @@ function Introduction({id}) {
                     <div className="IconLink w-3.5 h-3.5 justify-center items-center flex">
                       <div className="IconLink w-3.5 h-3.5 p-[0.62px] justify-center items-center inline-flex" />
                     </div>
-                    <div className="WwwPrabhattokmakCom text-white text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
-                      www.Prabhattokmak.com
+                    <div className=" text-white text-sm font-normal font-['IBM Plex Mono'] leading-[18px]">
+                      <a href="https://prabhat-barman.github.io/portfolio/">
+                        Website
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -113,7 +115,7 @@ function Introduction({id}) {
           </div>
         </div>
         <div className="flex items-center justify-between lg:flex-row md:flex-row sm:flex-row flex-col">
-        <div className="large-div  lg:w-[75%]  md:w-[75%] w-full h-3/5">
+          <div className="large-div  lg:w-[75%]  md:w-[75%] w-full h-3/5">
             <div className="Info h-[432px] flex-col justify-start items-start gap-8 inline-flex">
               <div className="Title self-stretch h-[234px] flex-col justify-start items-start flex">
                 <div className="Text self-stretch h-[216px] px-4 flex-col justify-start items-start flex">
