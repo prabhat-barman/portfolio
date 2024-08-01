@@ -6,12 +6,14 @@ function Contact({id}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [numberError, setNumberError] = useState("");
   const [addInputField,setaddInputField]=useState(false);
 
   const handleaddInputField=()=>{
@@ -32,6 +34,10 @@ function Contact({id}) {
     if (e.target.value) setMessageError("");
   };
 
+  const handleNumberChange = (e) => {
+    setNumber(e.target.value);
+    if (e.target.value) setNumberError("");
+  };
   const validateEmail = (email) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return re.test(String(email).toLowerCase());
@@ -53,6 +59,14 @@ function Contact({id}) {
     }
     if (!message) {
       setMessageError("Message is required");
+      isValid = false;
+    }
+    if (!message) {
+      setMessageError("Message is required");
+      isValid = false;
+    }
+    if (!number) {
+      setNumberError("Number is required");
       isValid = false;
     }
 
@@ -105,12 +119,12 @@ function Contact({id}) {
         <form onSubmit={handleSubmit}>
           <div className="Sheet w-full flex-col justify-start items-center gap-16 flex lg:px-0 md:px-0 sm:px-0 px-5">
             <div className="Content self-stretch flex-col justify-start items-center gap-16 flex">
-              <div className="Title px-10 py-4 rounded-tl-[32px] rounded-br-[32px] border-2 border-[#12f7d6] flex-col justify-start items-center flex">
+              <div className="Title px-10 py-4 rounded-tl-[32px] rounded-br-[32px] border-2 border-[#12f7d6] flex-col justify-start items-center flex mb-20">
                 <div className="SendMeAMessage text-center text-[#12f7d6] lg:text-[32px] md:text-[32px] sm:text-[32px] text-[24px] font-medium font-['IBM Plex Mono'] capitalize leading-[42px]">
                   Send me a message
                 </div>
               </div>
-              <div className="Info self-stretch h-[200px] flex-col justify-start items-center gap-16 flex">
+              <div className="Info self-stretch h-[200px] flex-col justify-center items-center gap-16 flex">
                 <div className="Colunmn self-stretch justify-center lg:items-start md:items-start lg:gap-32 md:gap-32 sm:gap-24 gap-14 flex lg:flex-row md:flex-row sm:flex-row flex-col">
                   <div className="Name grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
                     <div className="Title self-stretch justify-start items-start gap-2.5 inline-flex">
@@ -179,23 +193,23 @@ function Contact({id}) {
                     <div className="Colunmn self-stretch justify-start items-start gap-16 inline-flex mt-8">
                     <div className="Message grow shrink basis-0 flex-col justify-start items-start gap-6 inline-flex">
                       <div className="Title self-stretch justify-start items-start inline-flex">
-                        <label className="YourMessage grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
+                        <label htmlFor="" className="YourMessage grow shrink basis-0 text-[#12f7d6] text-base font-light font-['Ubuntu'] leading-[18px]">
                           Your Number <span className="text-white">*</span>
                         </label>
                         <IoIosCloseCircleOutline onClick={handleaddInputField} className="text-white text-base" />
                       </div>
                       <div className="Input self-stretch h-[26px] flex-col justify-start items-start gap-2 flex">
                         <input
-                          name="message"
-                          onChange={handleMessageChange}
-                          value={message}
-                          className="EnterYourName bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
-                          type="text"
+                          name="number"
+                          onChange={handleNumberChange}
+                          value={number}
+                          className="EnterYourNumber [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-transparent border-none outline-none self-stretch text-white text-base font-light font-['Ubuntu'] leading-[18px]"
+                          type="number"
                           placeholder="Enter your number"
                         />
                         <div className="Line26 self-stretch h-[0px] border border-[#97f9eb]"></div>
-                        {messageError && (
-                          <div className="text-red-500 text-xs">{messageError}</div>
+                        {numberError && (
+                          <div className="text-red-500 text-xs">{numberError}</div>
                         )}
                       </div>
   
@@ -209,7 +223,7 @@ function Contact({id}) {
             {loading ? (
               <div className="text-white">Loading...</div>
             ) : (
-              <div className="Button flex-col justify-start items-start flex lg:mt-0 md:mt-0 sm:mt-0 mt-40">
+              <div className="Button flex-col justify-start items-start flex lg:mt-12 md:mt-12 sm:mt-12 mt-24">
               <div className="Button px-8 py-4 bg-[#12f7d6] rounded-[32px] justify-center items-center gap-4 inline-flex">
                 <div className="ButtonText text-[#292f36] text-xl font-normal font-['Ubuntu'] capitalize leading-normal">
                   Send Message

@@ -91,18 +91,18 @@ function Nav({onLinkClick}) {
           menuOpen ? "flex" : "hidden"
         } md:hidden`}
       >
-        <a onClick={()=>onLinkClick("Home")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
+        <span onClick={()=>onLinkClick("Home")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
           Home
-        </a>
-        <a onClick={()=>onLinkClick("Projects")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
+        </span>
+        <span onClick={()=>onLinkClick("Projects")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
          Projects
-        </a>
-        <a onClick={()=>onLinkClick("About")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
+        </span>
+        <span onClick={()=>onLinkClick("About")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
          About
-        </a>
-        <a onClick={()=>onLinkClick("Contact")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
+        </span>
+        <span onClick={()=>onLinkClick("Contact")} className="no-underline text-[1.1rem] tracking-[0.8px] hover:cursor-pointer hover:text-[#12F7D6] hover:transition duration-300">
          Contact
-        </a>
+        </span>
         <div className="flex w-full mt-2">
             {mediaData.mediaLinks.map((link) => (
               <div

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.EnterYourNumber::-webkit-outer-spin-button,
+.EnterYourNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
